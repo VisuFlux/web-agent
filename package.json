@@ -1,0 +1,30 @@
+{
+  "name": "visuflux-web-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web agent of the project visuflux",
+  "keywords": [
+    "heatmap",
+    "web-agent",
+    "tracker",
+    "tracking"
+  ],
+  "homepage": "https://github.com/VisuFlux/web-agent#readme",
+  "bugs": {
+    "url": "https://github.com/VisuFlux/web-agent/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VisuFlux/web-agent.git"
+  },
+  "license": "ISC",
+  "author": "Jimmy Badaire (vSKAH)",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
