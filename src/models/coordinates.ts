@@ -1,26 +1,25 @@
 export default class Coordinates {
-	private readonly _x: number;
-	private readonly _y: number;
+  private readonly _x: number;
+  private readonly _y: number;
 
-	private constructor(x: number, y: number) {
-		this._x = x / window.innerWidth;
-		this._y = y / window.innerHeight
-	}
+  private constructor(x: number, y: number) {
+    this._x = x / window.innerWidth;
+    this._y = y / window.innerHeight;
+  }
 
-	public static fromCoordinates(x: number, y: number): Coordinates {
-		return new Coordinates(x, y);
-	}
+  get x(): number {
+    return this._x;
+  }
 
-	public static fromClick(pointerEvent: PointerEvent): Coordinates {
-		return new Coordinates(pointerEvent.x, pointerEvent.y);
-	}
+  get y(): number {
+    return this._y;
+  }
 
+  public static fromCoordinates(x: number, y: number): Coordinates {
+    return new Coordinates(x, y);
+  }
 
-	get x(): number {
-		return this._x;
-	}
-
-	get y(): number {
-		return this._y;
-	}
+  public static fromClick(pointerEvent: PointerEvent): Coordinates {
+    return new Coordinates(pointerEvent.x, pointerEvent.y);
+  }
 }

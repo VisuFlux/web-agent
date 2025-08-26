@@ -1,9 +1,9 @@
 export default interface AgentConfig {
-	apiURL: string;
+  apiURL: string;
 
-	trackClicks: boolean;
-	trackScroll: boolean;
-	trackMovements: boolean;
+  trackClicks: boolean;
+  trackScroll: boolean;
+  trackMovements: boolean;
 
-	debug: boolean;
+  debug: boolean;
 }

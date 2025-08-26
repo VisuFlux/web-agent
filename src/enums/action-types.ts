@@ -1,5 +1,5 @@
 export enum ActionTypes {
-	CLICK,
-	MOVE,
-	SCROLL
+  CLICK,
+  MOVE,
+  SCROLL
 }
