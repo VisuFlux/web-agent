@@ -5,11 +5,15 @@ import { ActionTypes } from "../enums/action-types";
 
 export class TrackingListeners {
   private readonly _payloadsBuffer: TrackingPayload[];
+  private readonly config: AgentConfig;
 
   private clickListener: ((e: PointerEvent) => void) | null = null;
+  private readonly postFunction: (payload: TrackingPayload, type: "BEACON" | "FETCH") => void;
 
-  public constructor(config: AgentConfig) {
+  public constructor(config: AgentConfig, postFunction: (payload: TrackingPayload, type: "BEACON" | "FETCH") => void) {
     this._payloadsBuffer = [];
+    this.config = config;
+    this.postFunction = postFunction;
     this.hookEvents(config);
   }
 
@@ -32,13 +36,17 @@ export class TrackingListeners {
   }
 
   private trackClick(event: PointerEvent): void {
+    if (!this.config.trackClicks) return;
+
     const coords = Coordinates.fromClick(event);
-    this._payloadsBuffer.push({
+    const trackingPayload: TrackingPayload = {
       actionType: ActionTypes.CLICK,
       coordinates: coords,
       timestamp: Date.now(),
       deviceType: "UNKNOWN",
       url: window.location.origin + window.location.pathname + window.location.search
-    });
+    };
+
+    this.postFunction(trackingPayload, "BEACON");
   }
 }

@@ -16,3 +16,13 @@ export interface DebugTrackingPayload extends TrackingPayload {
   viewportX: number;
   viewportY: number;
 }
+
+export function payloadToDebugPayload(payload: TrackingPayload): DebugTrackingPayload {
+  return {
+    ...payload,
+    screenWidth: window.screen.width,
+    screenHeight: window.screen.height,
+    viewportX: window.innerWidth,
+    viewportY: window.innerHeight
+  };
+}
