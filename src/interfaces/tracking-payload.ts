@@ -4,9 +4,10 @@ import Coordinates from "../models/coordinates";
 export interface TrackingPayload {
   url: string;
   deviceType: "COMPUTER" | "SMARTPHONE" | "TABLET" | "UNKNOWN";
-  coordinates: Coordinates;
+  coordinates?: Coordinates;
   actionType: ActionTypes;
   timestamp: number;
+  data?: Record<string, unknown>;
 }
 
 export interface DebugTrackingPayload extends TrackingPayload {
