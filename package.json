@@ -21,9 +21,14 @@
   "author": "Jimmy Badaire (vSKAH)",
   "type": "commonjs",
   "main": "dist/index.js",
+  "module": "./dist/agent.js",
+  "types": "./dist/agent.d.ts",
   "scripts": {
     "build": "tsc"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "prettier": "^3.6.2",
     "typescript": "^5.9.2"

@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "lib": ["dom", "esnext"],
+    "target": "es2019",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "outDir": "./dist",
     "rootDir": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -17,7 +19,6 @@
     "noImplicitThis": false,
     "useUnknownInCatchVariables": true,
     "alwaysStrict": true,
-
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -26,5 +27,7 @@
     "skipLibCheck": true,
     "declaration": true
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*"
+  ]
 }
