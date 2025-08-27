@@ -3,10 +3,9 @@ import Coordinates from "../models/coordinates";
 
 export interface TrackingPayload {
   url: string;
-  deviceType: "COMPUTER" | "SMARTPHONE" | "TABLET" | "UNKNOWN";
+  deviceType: 0 | 1 | 2 | 3; // 0 = Desktop, 1 = Mobile, 2 = Tablet, 3 = Other
   coordinates?: Coordinates;
   actionType: ActionTypes;
-  timestamp: number;
   data?: Record<string, unknown>;
 }
 

@@ -65,7 +65,6 @@ export class TrackingListeners {
     const trackingPayload: TrackingPayload = {
       actionType: ActionTypes.CLICK,
       coordinates: coords,
-      timestamp: Date.now(),
       deviceType: getDeviceType(),
       url: window.location.origin + window.location.pathname + window.location.search
     };
@@ -80,7 +79,6 @@ export class TrackingListeners {
       setTimeout(() => {
         const trackingPayload: TrackingPayload = {
           actionType: ActionTypes.SCROLL,
-          timestamp: Date.now(),
           deviceType: getDeviceType(),
           url: window.location.origin + window.location.pathname + window.location.search,
           data: { yOffset: this.lastKnownScrollY }
@@ -97,7 +95,6 @@ export class TrackingListeners {
       setTimeout(() => {
         const trackingPayload: TrackingPayload = {
           actionType: ActionTypes.MOVE,
-          timestamp: Date.now(),
           deviceType: getDeviceType(),
           url: window.location.origin + window.location.pathname + window.location.search,
           coordinates: Coordinates.fromCoordinates(event.clientX, event.clientY)

@@ -31,8 +31,7 @@ export default class HeatmapAgent {
       {
         url: window.location.origin + window.location.pathname + window.location.search,
         deviceType: getDeviceType(),
-        actionType: ActionTypes.CONNECTED,
-        timestamp: Date.now()
+        actionType: ActionTypes.CONNECTED
       },
       "BEACON"
     );
@@ -48,8 +47,7 @@ export default class HeatmapAgent {
       {
         url: window.location.origin + window.location.pathname + window.location.search,
         deviceType: getDeviceType(),
-        actionType: ActionTypes.DISCONNECTED,
-        timestamp: Date.now()
+        actionType: ActionTypes.DISCONNECTED
       },
       "BEACON"
     );
