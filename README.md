@@ -5,15 +5,12 @@ Un agent de tracking comportemental pour générer des graphiques et heatmaps à
 
 ## 📋 Description
 
-Visuflux Agent est une solution de tracking avancée qui permet de capturer et analyser les comportements des utilisateurs sur vos applications. 
-Il génère automatiquement des visualisations sous forme de graphiques et de heatmaps pour vous aider à comprendre l'expérience utilisateur.
+Visuflux Agent est une solution de tracking avancée qui permet de capturer et les comportements des utilisateurs sur vos applications pour vous aider à comprendre l'expérience utilisateur. 
 
 
 ## 🚀 Fonctionnalités
 
 - 📊 **Tracking comportemental** - Capture les interactions utilisateurs en temps réel
-- 🔥 **Génération de heatmaps** - Visualise les zones d'interaction les plus populaires
-- 📈 **Graphiques analytiques** - Produit des graphiques détaillés des comportements
 - 📱 **Support mobile** - Optimisé pour les appareils mobiles
 - 🎯 **Configuration flexible** - Agent configurable selon vos besoins
 
