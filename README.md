@@ -28,7 +28,7 @@ Visuflux Agent est une solution de tracking avancée qui permet de capturer et l
 │  │  └─ action-types.ts          # Types d'actions trackées
 │  ├─ interfaces
 │  │  ├─ agent-config.ts          # Configuration de l'agent
-│  │  └─ tracking-payload.ts      # Structure des données trackées
+│  │  └─ tracking-payload-buffer.ts      # Structure des données trackées
 │  ├─ listeners
 │  │  └─ tracking-listeners.ts    # Écouteurs d'événements
 │  ├─ models
@@ -49,15 +49,14 @@ Pas encore dispo sur NPM.
 L'agent se configure via l'interface `AgentConfig` :
 
 ```typescript
-// Exemple de configuration
+// Exemple de configuration de l'agent 
 {
-    apiURL: 'https://visuflux.com',
-    endpoint: 'https://api.visuflux.com',
-    trackClicks: true,
-    trackScroll: true,
-    trackMovements: true,
-    debug: true
-}
+  apiURL: "http://localhost:8080",
+  trackClicksOptions: { enabled: true, throttleMs: 100 },
+  trackScrollOptions: { enabled: true, throttleMs: 100 },
+  trackMovementsOptions: { enabled: true, throttleMs: 250 },
+  debug: true
+};
 ```
 
 ## 🎯 Utilisation
@@ -67,18 +66,26 @@ L'agent se configure via l'interface `AgentConfig` :
 
 ```typescript
 // Exemple d'intégration
-<script>
-  const agent = new HeatmapAgent({
-    apiURL: 'https://visuflux.com',
-    endpoint: 'https://api.visuflux.com',
-    trackClicks: true,
-    trackScroll: true,
-    trackMovements: true,
-    debug: true
-  });
+<html>
+  <script src="dist/visuflux-agent.js"/>
+  <body>
+      <script>
+        //build the agent configuration
+        const config = {
+          apiURL: "http://localhost:8080",
+          trackClicksOptions: { enabled: true, throttleMs: 100 },
+          trackScrollOptions: { enabled: true, throttleMs: 100 },
+          trackMovementsOptions: { enabled: true, throttleMs: 250 },
+          debug: true
+        };
 
-agent.initialize();
-</script>
+        //Instantiate the agent
+        const agent = new VisuFluxAgent(config);
+        agent.initialize(); // Start tracking
+        agent.uninitialize(); // Stop tracking
+      </script>
+    </body>
+</html>
 ```
 
 
@@ -89,7 +96,7 @@ L'agent peut capturer différents types d'interactions définies dans `ActionTyp
 - [x] Clics
 - [x] Mouvements de souris
 - [x] Scrolling
-- [ ] Interactions tactiles (mobile)
+- [x] Interactions tactiles (mobile)
 - [ ] Et bien d'autres...
 
 

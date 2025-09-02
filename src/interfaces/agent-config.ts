@@ -1,17 +1,58 @@
-export default interface AgentConfig {
+/**
+ * Configuration options for the VisuFlux agent.
+ * - apiURL: The API endpoint URL for sending tracking data.
+ * - trackClicksOptions: Options for tracking click events.
+ * - trackScrollOptions: Options for tracking scroll events.
+ * - trackMovementsOptions: Options for tracking mouse movement events.
+ * - debug: Whether to enable debug mode (sends more detailed payloads).
+ */
+export interface AgentConfig {
+  /**
+   * The API endpoint URL for sending tracking data.
+   */
   apiURL: string;
 
-  trackClicks: boolean;
-  trackScroll: boolean;
-  trackMovements: boolean;
+  /**
+   * Options for tracking click events.
+   */
+  trackClicksOptions: FeatureOptions;
+
+  /**
+   * Options for tracking scroll events.
+   */
+  trackScrollOptions: FeatureOptions;
+
+  /**
+   * Options for tracking mouse movement events.
+   */
+  trackMovementsOptions: FeatureOptions;
+
   debug: boolean;
 }
 
-export const DefaultAgentConfig: AgentConfig = {
-  apiURL: "https://api.example.com/track",
+/**
+ * Options for enabling/disabling a feature and setting its throttle time.
+ * - enabled: Whether the feature is enabled.
+ * - throttleMs: The throttle time in milliseconds (optionaL).
+ */
+export interface FeatureOptions {
+  /**
+   * Whether the feature is enabled.
+   */
+  enabled: boolean,
 
-  trackClicks: true,
-  trackScroll: false,
-  trackMovements: false,
-  debug: false
-};
+  /**
+   * The throttle time in milliseconds (optional).
+   */
+  throttleMs?: number
+}
+
+export function defaultAgentConfig(): AgentConfig {
+  return {
+    apiURL: "https://api.visuflux.com",
+    trackClicksOptions: { enabled: true, throttleMs: 100 },
+    trackScrollOptions: { enabled: true, throttleMs: 100 },
+    trackMovementsOptions: { enabled: false, throttleMs: 100 },
+    debug: false
+  };
+}

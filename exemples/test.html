@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="../dist/visuflux-agent.js"></script>
+<body>
+<script>
+  const config = {
+    apiURL: "http://localhost:8080",
+    trackClicksOptions: { enabled: true, throttleMs: 100 },
+    trackScrollOptions: { enabled: true, throttleMs: 100 },
+    trackMovementsOptions: { enabled: true, throttleMs: 250 },
+    debug: true
+  };
+  const agent = new VisuFluxAgent(config);
+  agent.initialize();
+</script>
+</body>
+</html>

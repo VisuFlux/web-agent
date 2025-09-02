@@ -23,14 +23,26 @@
   "main": "dist/index.js",
   "module": "./dist/agent.js",
   "types": "./dist/agent.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
   "files": [
     "dist"
   ],
   "devDependencies": {
     "prettier": "^3.6.2",
-    "typescript": "^5.9.2"
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/visuflux-agent.mjs",
+      "require": "./dist/visuflux-agent.js",
+      "types": "./dist/agent.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "webpack && tsc --emitDeclarationOnly",
+    "format": "prettier --write src/**/*.ts",
+    "prepublishOnly": "npm run build"
   }
 }
